@@ -11,6 +11,7 @@ O projeto tem como objetivo facilitar a vida de seus usuários, auxiliando ao fa
 - Banco de dados relacional dedicado para listas de compras
 - Capacidade de armazenar várias listas de compras
 
+- Possibilidade de cadastrar usuarios
 - Adicionar itens à lista de compras específica
 - Deletar itens da lista de compras específica
 - Atualizar itens da lista de compras específica
