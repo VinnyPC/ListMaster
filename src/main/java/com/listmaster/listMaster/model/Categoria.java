@@ -21,8 +21,8 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull(message = "O Atributo nome é obrigatório")
-	private String nome;
+	@NotNull(message = "O Atributo nomeCategoria é obrigatório")
+	private String nomeCategoria;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("categoria")
@@ -36,12 +36,12 @@ public class Categoria {
 		this.id = id;
 	}
 	
-	public String getNome() {
-		return this.nome;
+	public String getNomeCategoria() {
+		return this.nomeCategoria;
 	}
 	
-	public void setNome(String descricao) {
-		this.nome = nome;
+	public void setNomeCategoria(String nomeCategoria) {
+		this.nomeCategoria = nomeCategoria;
 	}
 
 	public List<Produto> getProduto() {
