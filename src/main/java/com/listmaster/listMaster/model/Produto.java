@@ -10,14 +10,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
-
-
 
 	@Entity
 	@Table(name = "tb_produtos")
@@ -28,11 +27,10 @@ import jakarta.validation.constraints.Size;
 		private Long id;
 		
 		@NotBlank(message = "O atributo nome é obrigatório")
-		@Size(min = 5, max = 100, message = "O atributo nome deve conter entre 5 e 100 caracteres")
+		@Size(min = 2, max = 100, message = "O atributo nome deve conter entre 2 e 100 caracteres")
 		private String nome;
 		
-		@NotBlank(message = "O atributo descrição é obrigatório")
-		@Size(min = 10, max = 1000, message = "O atributo descricao deve ter entre 10 e 1000 caracteres")
+		@Size(min = 2, max = 1000, message = "O atributo descricao deve ter entre 2 e 1000 caracteres")
 		private String descricao;
 		
 		@Digits(integer = 10, fraction = 2)
@@ -45,6 +43,10 @@ import jakarta.validation.constraints.Size;
 		@ManyToOne
 		@JsonIgnoreProperties("produto")
 		private Categoria categoria;
+		
+		@ManyToOne
+	    @JoinColumn(name = "lista_id")
+	    private ListaDeCompras listaDeCompras;
 		
 		public Long getId() {
 			return id;
